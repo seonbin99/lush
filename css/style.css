@@ -1,0 +1,983 @@
+@charset "UTF-8";
+
+
+/* 뼈대 잡기 */
+
+html, body {
+    width: 100%;
+    font-family: 'Pretendard-Regular';
+    background: #f3f3f3;
+    word-break: keep-all;
+}
+
+
+/* @media screen and (min-width:1280px) {} */
+
+
+header {
+    width: 100%;
+    background: #f3f3f3;
+    position: relative;
+    padding-top: 40px;
+}
+
+#visual {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 700px;
+    background: #000;
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.6vw;
+}
+
+
+
+footer {
+    width: 100%;
+    background: #000;
+}
+
+.centerbox {
+    max-width: 1550px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 33px;
+    color: #222;
+    font-family: 'Pretendard-Bold';
+}
+
+h3 {
+    font-size: 20px;
+    color: #777;
+    font-family: 'Pretendard-SemiBold';
+}
+/* header 영역 */
+
+h1 {
+    width: 200px;
+    height: 60px;
+    margin: 0 auto 20px auto;
+}
+h1 a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 a img {
+    height: 100%;
+}
+.mini_box {
+    width: 265px;
+    height: 54px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.mini_box .global {
+    font-family: 'Pretendard-SemiBold';
+    width: 62px;
+    height: 30px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: url(../images/arrow.png) no-repeat right;
+}
+
+.mini_box .global a {
+    display: block;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #000;
+}
+
+.mini_box .global .lang {
+    margin-top: 4px;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+}
+
+.mini_box .global .lang:hover {
+    height: 70px;
+}
+
+
+.mini_box  .subsc {
+    width: 64px;
+    height: 26px;
+    background-color: #00405c;
+    font-size: 13px;
+    text-align: center;
+}
+
+.mini_box  .subsc:hover a {
+    background: #a6ae55;
+}
+.mini_box .subsc a {
+    font-family: 'Pretendard-SemiBold';
+    color: #f7f6f6;
+    box-sizing: border-box;
+    padding: 5px;
+    display: block;
+    transition: .3s;
+}
+
+.mini_box .ham {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 30px;
+    height: 26px;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    /* border: 1px solid #000; */
+}
+
+.mini_box .ham li {
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transition: .3s;
+}
+
+
+.mini_box .ham.on li.first {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 28px;
+}
+
+.mini_box .ham.on li.last {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+    width: 28px;
+}
+
+.mini_box .ham.on li.sec {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gnb {
+    position: relative;
+    bottom: 0;
+    z-index: 5;
+}
+
+.gnb .centerbox {
+    display: flex;
+    height: 60px;
+    line-height: 60px;
+    justify-content: center;
+}
+
+.gnb > .centerbox li {
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Pretendard-Medium';
+    transition: .3s;
+    flex-grow: 1;
+}
+
+
+.gnb > .centerbox > li a {
+    display: block;
+}
+
+.lnb {
+    /* border: 1px solid #000; */
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s;
+    background: #eee;
+}
+
+.gnb li:hover .lnb {
+    height: auto;
+    max-height: 300px;
+}
+
+.gnb li:hover {
+    background: #4FA75F;
+}
+
+.lnb > li {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    /* background: #ddd; */
+    /* border: 1px solid #000; */
+    position: relative;
+}
+.lnb > li:hover a {
+    color: #fff;
+}
+
+/* .lnb > li::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+} */
+
+/* 모바일 햄버거 */
+
+header .hambuger {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    z-index: 7;
+    display: none;
+}
+
+header .hambuger::before , 
+header .hambuger::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: #000;
+    left: 8px;
+    top: 50%;
+}
+
+header .hambuger::before {margin-top: -5px;
+    transition: .3s;}
+header .hambuger::after {margin-top: 5px;
+    transition: .3s;}
+
+header .hambuger.on:before {
+    margin-top: 0;
+    transform: rotate(45deg);
+
+}
+
+header .hambuger.on:after {
+    margin-top: 0;
+    transform: rotate(135deg);
+
+}
+/* modal 영역 */
+.modal {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: rgba(0, 13, 39, .9);
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 6;
+    transition: .3s;
+}
+
+.modal .navbox {
+    width: 80vw;
+    height: 100vh;
+    background: #5a8c53;
+    position: absolute;
+    top: 0;
+    right: calc(-100% + 20vw);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: .3s;
+    overflow: scroll;
+
+}
+.modal .navbox.on {
+    right: 0;
+}
+
+.modal .navbox .navcont {
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+
+.modal .navbox .navcont li {
+    height: auto;
+    line-height: 60px;
+    text-align: center;
+    font-size: 24px;
+    border-bottom: 1px solid rgba(255,255,255, .2);
+}
+.modal .navbox .navcont li a {
+    color: #fff;
+    display: block;
+}
+
+.modal .navbox .navcont li:hover .lnb {
+    max-height: 500px;
+}
+.modal .navbox .navcont li .lnb {
+    
+    background: #000;
+}
+
+.modal .navbox .navcont li .lnb li {
+    border-bottom: 0 solid #000;
+    font-size: 18px;
+}
+
+/* visual 영역 */
+
+#visual video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+#visual::before {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* section에 들어가는 문구 */
+
+.textbox {
+    width: 100%;
+    text-align: center;
+}
+
+.textbox h3 {
+    width: 100%;
+    margin-bottom: 30px;
+
+}
+
+.textbox h2 {
+    width: 100%;
+    margin-bottom: 85px;
+}
+
+/* section 공통 */
+
+section b {
+    font-size: 33px;
+    font-family: 'Pretendard-Bold';
+}
+
+section p {
+    font-size: 25px;
+    font-family: 'Pretendard-Medium';
+}
+
+/* section1 영역 */
+
+#section1 .centerbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.6vw;
+}
+
+#section1 .imgbox {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1025fr 520fr;
+}
+
+#section1 .imgbox > li {
+}
+
+#section1 .imgbox > li:first-child {
+    background: url(../images/section1_1.png) center;
+    background-size: cover;
+}
+
+#section1 .imgbox > li:first-child .box {
+    color: #fff;
+    gap: 55px;
+}
+
+#section1 .imgbox > li:first-child .box span {
+    font-family: 'Pretendard-Bold';
+}
+
+#section1 .imgbox li > a {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4.1vw;
+    box-sizing: border-box;
+}
+
+#section1 .imgbox a > .box {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+#section1 .banner_box {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+#section1 .banner_box li {
+}
+
+#section1 .banner_box li.firstbn {
+    background: url(../images/section1_2.png);
+    background-size: cover;
+}
+
+#section1 .banner_box li.firstbn a {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+}
+#section1 .banner_box li.firstbn a .box {
+    margin-right: 20px;
+}
+#section1 .banner_box li.gift {
+    background: url(../images/section1_3.png);
+    background-size: cover;
+}
+
+#section1 .banner_box li.gift a{
+    box-sizing: border-box;
+}
+
+#section1 .banner_box .survey {
+    background: url(../images/section1_4.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4.1vw;
+}
+
+#section1 .banner_box .survey .box {
+    color: #fff;
+    padding-left: 2.6vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#section1 .banner_box .survey .box b {
+
+}
+
+#section1 .banner_box .survey .box a {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+
+/* section2 영역 */
+
+#section2 .imgbox {
+    display: grid;
+    width: 100%;
+    min-height: 100vh;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows:1fr 1fr
+}
+#section2 .imgbox li {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    transition: .3s;
+}
+
+#section2 .imgbox li:hover img {
+    transform: scale(1.2);
+}
+
+#section2 .imgbox li.first {
+    grid-row: span 2;
+}
+#section2 .imgbox li.first:hover {
+}
+#section2 .imgbox li.second {}
+#section2 .imgbox li.third {
+    grid-row: span 2;}
+#section2 .imgbox li.fourth {
+}
+#section2 .imgbox li figure {
+    width: 100%;
+    height: 100%;
+}
+#section2 .imgbox li figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .3s;
+}
+/* 
+#section2 .imgbox li:first-child {
+    background: url(../images/section2.png) no-repeat;
+    background-size: cover;
+}
+
+#section2 .imgbox li:nth-child(2) {
+    background: url(../images/section2_1.png) center no-repeat;
+    background-size: cover;
+}
+#section2 .imgbox li:nth-child(3) {
+    background: url(../images/section2_3.png) center no-repeat;
+    background-size: cover;
+}
+#section2 .imgbox li:nth-child(4) {
+    background: url(../images/section2_2.png) center no-repeat;
+    background-size: cover;
+} */
+
+ #section2 .imgbox .explain {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .53);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: .3s;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    white-space: wrap;
+    word-break: keep-all;
+    opacity: 0;
+ }
+
+ #section2 .imgbox li:hover .explain {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 1;
+}
+
+
+/* section3 영역 */
+
+#section3 .imgbox {
+    background: url(../images/section3.png) center top;
+    background-size: cover;
+    width: 100%;
+    padding:10.4vw 5.2vw 5.2vw 5.2vw;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#section3 .imgbox li:nth-child(1) {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000;
+    color: #fff;
+    height: 60px;
+    line-height: 60px;
+    transition: .3s;
+}
+#section3 .imgbox li b {
+    font-size: 18px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+#section3 .imgbox li:nth-child(2) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section3 .imgbox li:nth-child(2) figure {
+    width: 43vw;
+    height: 47vw;
+}
+#section3 .imgbox li:nth-child(2) figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#section3 .imgbox li:nth-child(2) .exbox {
+    flex-grow: 1;
+    background: #fff;
+    padding: 2.6vw;
+    box-sizing: border-box;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 3.6vw;
+}
+#section3 .imgbox li:nth-child(2) .exbox strong {
+    font-size: 33px;
+    font-family: 'Pretendard-Bold';
+
+}
+#section3 .imgbox li:nth-child(2) .exbox p {
+    font-size: 25px;
+    font-family: 'Pretendard-Regular';
+    margin-top: 30px;
+}
+a.viewmore {
+    font-size: 18px;
+    font-family: 'Pretendard-Medium';
+    display: inline-block;
+    border-radius: 3px;
+    padding: 19px 60px;
+    border: 1px solid #000;
+    /* margin-bottom: 80px; */
+    margin-top: 2.6vw;
+}
+
+
+/* section4 영역 */
+
+#section4 {
+    width: 100%;
+}
+#section4 .imgbox {
+    width: 100%;
+    background: url(../images/section4.png);
+    background-size: cover;
+    min-height: 100vh;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#section4 .centerbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+#section4 .centerbox ul li {
+    width: 13.5vw;
+    height: 13.5vw;
+}
+/* section5 */
+
+#section5 {
+    width: 100%;
+}
+#section5 .centerbox {
+    position: relative;
+    display: flex;
+
+}
+#section5 .centerbox > figure {
+    width: 100%;
+}
+#section5 .centerbox > figure img {
+    width: 100%;
+}
+#section5 .centerbox .viewbox {
+    width: 19vw;
+    height: 19vw;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+#section5 .centerbox .viewbox figure {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#section5 .centerbox .viewbox figure img {
+    width: 83%;
+}
+#section5 a.viewmore {
+    color: #fff;
+    border: 1px solid #f3f3f3;
+}
+/* footer */
+footer {
+    padding: 3.8vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+footer h1 {
+    margin: 0;
+}
+footer h1 a {
+    display: block;
+}
+footer h1 a img {
+    width: 100%;
+}
+footer ul {
+    display: flex;
+    justify-content: center;
+
+}
+footer ul li {
+    font-size: 16px;
+}
+footer ul li a {
+    display: inline-block;
+    padding: 0 15px;
+    border-right: 1px solid #eee;
+    color: #fff;
+}
+footer ul li:last-child a {
+    border-right: 0;
+}
+footer .copy {
+    color: #6c6c6c;
+    font-family: 'Pretendard-Bold';
+    text-align: center;
+}
+
+
+
+/* 반응형 */
+
+@media screen and (max-width: 1333px ) {
+    section b {
+        /* font-size: 1.9vw; */
+        font-size: 26px;
+    }
+    section p {
+        font-size: 22px;
+        /* font-size: 1.7vw; */
+    }
+    a.viewmore {
+        font-size: 14px;
+        padding: 1.4vw 3.7vw;
+    }
+    #section3 .imgbox li:nth-child(2) .exbox strong {
+        font-size: 2.4vw ;
+    }
+    #section3 .imgbox li:nth-child(2) .exbox p {
+        font-size: 1.8vw;
+    }
+}
+@media screen and (max-width:1169px) {
+    section b {
+        font-size: 1.9vw;
+        /* font-size: 26px; */
+    }
+    section p {
+        /* font-size: 22px; */
+        font-size: 1.7vw;
+    }
+    #section5 .centerbox .viewbox {
+        transform: translateY(-50%);
+        left: 0;
+
+    }
+
+    
+}
+/* 태블릿 */
+@media screen and (max-width:967px) {
+
+    section b {
+        font-size: 18px;
+    }
+    section p {
+        font-size: 16px;
+    }
+    header {
+        padding-top: 20px ;
+    }
+    header .mini_box {
+        display: none;
+    }
+    header .gnb {
+        display: none;
+    }
+    header .hambuger {
+        display: block;
+    }
+    #section1 .imgbox {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    #section1 .imgbox li > a {
+        width: 80vw;
+    }
+    #section1 .imgbox a > .box {
+    }
+    #section1 .banner_box li.firstbn {
+        background-position: left center;
+    }
+    #section1 .banner_box li.firstbn a {
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+    }
+    #section1 .banner_box li.firstbn a .box {
+        width: 35vw;
+    }
+    #section1 .banner_box .survey .box a {
+        font-size: 14px;
+    }
+    #section2 .imgbox {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: .5fr .5fr;
+    }
+    #section2 .imgbox li.first {
+        grid-row: auto;
+        grid-column: span 3;
+    }
+    #section2 .imgbox li.third {
+        grid-row: auto;
+        grid-column: auto;
+    }
+    #section3 .imgbox {
+        min-height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #section3 .imgbox li:nth-child(1) {
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+
+    }
+    #section3 .imgbox li:nth-child(2) .exbox strong {
+        font-size: 20px;
+    }
+    #section3 .imgbox li:nth-child(2) .exbox p {
+        font-size: 16px;
+    }
+    #section4 .imgbox {
+        padding: 50px ;
+        box-sizing: border-box;
+    }
+    #section5 .centerbox .viewbox {
+        width: 150px;
+        height: 150px;
+    }
+    footer h1 {
+        width: 144px;
+    }
+}
+/* 모바일 */
+@media screen and (max-width:640px) {
+    #section1 .imgbox  li:nth-child(1) .box b {
+        color: #000;
+    }
+    #section1 .imgbox li:nth-child(1) .box p {
+        width: 40vw;
+        color: #000;
+    }
+    .textbox h2 {
+        word-break: keep-all;
+    }
+    #section3 .imgbox {
+        align-items: flex-end;
+    }
+    #section3 .imgbox li:nth-child(1) {
+        line-height: 30px;
+        height: auto;
+        font-size: 16px;
+        
+    }
+    #section3 .imgbox li b {
+        font-family: 'Pretendard-Light';
+        font-weight: normal;
+        font-size: 16px;
+    }
+    #section3 .imgbox li:nth-child(2) {
+        flex-direction: column;
+        gap: 20px;
+    }
+    #section3 .imgbox li:nth-child(2) figure {
+        width: 100%;
+        height: 100%;
+        flex-grow: 1;
+    }
+
+    #section5 {
+        height: 100vh;
+    }
+    #section5 .centerbox {
+        flex-grow: 1;
+    }
+    #section5 .centerbox > figure {
+        height: 100%;
+        flex-grow: 1;
+    }
+    #section5 .centerbox > figure img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+    footer ul {
+        flex-wrap: wrap;
+    }
+    footer ul li {
+        width: 40%;
+    }
+    footer .copy {
+        font-size: 14px;
+    }
+}
